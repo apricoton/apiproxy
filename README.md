@@ -5,4 +5,4 @@ composer install
 php -S 0.0.0.0:8000 -t public public/index.php
 ```
 
-http://path.to.built-in.server:8080/http://hogehoge.com/?hoge=fuga
+http://path.to.built-in.server:8000/http://hogehoge.com/?hoge=fuga
