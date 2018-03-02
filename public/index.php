@@ -6,9 +6,12 @@ use Symfony\Component\HttpFoundation\Request;
 use GuzzleHttp\Client;
 
 $app = new Silex\Application();
-$app->register(new Silex\Provider\VarDumperServiceProvider());
 
 $app->match('{url}', function ($url, Request $request) use($app) {
+    if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+        throw new Exception('invalid url');
+    }
+    
     $body = $request->request->all();
     $query = $request->query->all();
     $method = $request->getMethod();
@@ -35,7 +38,7 @@ $app->match('{url}', function ($url, Request $request) use($app) {
     return $response;
 })->assert('url', '.*');
 
-$app->error(function (Exception $e, Request $request, $code) {
+$app->error(function (Exception $e, $code) {
     return new Response($code . ': ' . $e->getMessage());
 });
 
