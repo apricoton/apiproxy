@@ -1,0 +1,20 @@
+{
+    "name": "murakami/ajaxproxy",
+    "description": "",
+    "authors": [
+        {
+            "name": "murakami",
+            "email": "murakami@pensees.co.jp"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "5.6"
+        }
+    },
+    "require": {
+        "silex/silex": "^2.2",
+        "symfony/var-dumper": "^3.4",
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
