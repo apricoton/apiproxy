@@ -33,6 +33,7 @@ $app->match('{url}', function ($url, Request $request) use($app) {
     
     $response = new Response();
     $response->headers->set('Content-Type', $headers['Content-Type']);
+    $response->headers->set('Access-Control-Allow-Origin', '*');
     $response->setContent($body);
     $response->setStatusCode($status);
     return $response;
